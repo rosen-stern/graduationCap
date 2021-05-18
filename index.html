@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Nina's Graduation Cap</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+    
+    img{
+        height= 1hz;
+    }
+    
+</style>
+<script src=""></script>
+<body>
+
+    
+    <div id="photo">
+    <img>
+    </div>
+    
+</body>
+    
+    
+    <script>
+
+        //https://stackoverflow.com/questions/21638574/run-a-function-every-30-seconds-javascript/49237391
+        //https://stackoverflow.com/questions/12884284/iterating-through-image-folder-using-javascript-and-adding-the-result-in-html/36112209
+        var numberOfPhotos = 15;
+        
+        var photoDiv = document.getElementById("photo");
+        
+        var i = 0; 
+        var src = "images/graduation-" + (i+1) + ".png";
+        var img = new Image(); 
+        img.src = src;
+        img.id="photo-" + i;
+        photoDiv.appendChild(img);
+    
+
+setInterval(function(){showImage()}, 15000);
+  
+        
+function showImage(){
+    var src = "images/graduation-" + (i+1) + ".png";
+         
+    photoDiv.removeChild(document.getElementById("photo-" + i));
+        
+    if(i+1 > numberOfPhotos){
+        i=0;
+    } else {
+        i++;
+    }
+    
+    var img = new Image(); 
+    img.src = src;
+    
+    img.id="photo-" + i;
+    photoDiv.appendChild(img);
+        
+}
+    
+    </script>
+    
+</html>
